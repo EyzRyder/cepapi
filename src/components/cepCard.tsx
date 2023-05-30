@@ -1,6 +1,7 @@
-import { EnderecoType } from "@/types/apiTypes";
+import { EnderencoType } from "@/app/service/Types"
+
 interface Props{
-  data: EnderecoType,
+  data: EnderencoType,
 }
 export const CepCard = ({data}:Props) =>{
   return (
