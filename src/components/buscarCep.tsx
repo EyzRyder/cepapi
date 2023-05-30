@@ -20,9 +20,9 @@ export default function BuscarCep() {
 
   const { register, handleSubmit, watch, formState: { errors, isSubmitting } } = useForm<InputEnderenco>({
     defaultValues: {
-      uf: "",
-      cidade: "",
-      enderenco: ""
+      uf: "SP",
+      cidade: "São Paulo",
+      enderenco: "Rua Bassi"
     },
     resolver: zodResolver(InputEnderencoSchema)
   });
@@ -74,7 +74,7 @@ export default function BuscarCep() {
             type="text"
           />
         </span>
-        <button type="submit" className="px-2 py-1 rounded-md bg-emerald-500">
+        <button type="submit" className="px-2 py-1 rounded-md bg-emerald-500 text-white">
           Buscar
         </button>
       </form>
