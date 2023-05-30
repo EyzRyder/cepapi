@@ -1,4 +1,4 @@
-export interface EnderecoType {
+export interface EnderencoType {
   bairro: string,
   cep: string,
   complemento: string,
@@ -9,4 +9,12 @@ export interface EnderecoType {
   logradouro: string,
   siafi: string,
   uf: string
+}
+export type InputCep = {
+  cep: string
+}
+export type InputEnderenco = {
+  uf: string
+  cidade: string
+  enderenco: string
 }
