@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Axios from 'axios'
-
+import { toast } from "react-toastify";
 // services
 import { EnderencoType, InputCep } from "@/app/service/Types";
 import { InputCepSchema } from "@/app/service/validation";
@@ -16,6 +16,11 @@ export default function BuscarEndereco() {
   const { data, isFetching, error, refetch } = useQuery<EnderencoType>('endereco',
     async () => {
       const response = await Axios.get(`https://viacep.com.br/ws/${watch().cep}/json/`)
+      if (response.statusText !== "OK" || response.data?.erro) {
+        toast.error(`Cep não encontrado`)
+        throw Error()
+      }
+      toast.success(`Cep Encontrado`)
     return response.data});
 
   const { register, handleSubmit, watch, formState:{errors, isSubmitting} } = useForm<InputCep>({
@@ -48,12 +53,11 @@ export default function BuscarEndereco() {
           {...register('cep')}
           className='bg-transparent border-transparent outline-transparent'
           type="number"
-          // value={cep}
-          // onChange={(e) => handleOnChange(e, setCep)}
           />
         <button
           type="submit"
           className=" px-2 py-1 rounded-md bg-emerald-500 text-white"
+          disabled={isFetching || isSubmitting}
           >
           Buscar
         </button>
