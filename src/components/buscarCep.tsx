@@ -4,17 +4,29 @@ import Axios from 'axios'
 import { useQuery } from "react-query";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "react-toastify";
 //services
 import { EnderencoType, InputEnderenco } from "@/app/service/Types";
+import { InputEnderencoSchema } from '@/app/service/validation';
 //components
 import { CepCard } from "./cepCard";
 import { Loading } from "./loading";
-import { InputEnderencoSchema } from '@/app/service/validation';
 
 export default function BuscarCep() {
   const { data: ceps, isFetching, error, refetch } = useQuery<EnderencoType[]>('ceps',
     async () => {
       const response = await Axios.get(`https://viacep.com.br/ws/${watch().uf}/${watch().cidade}/${watch().enderenco}/json/`)
+      if (response.statusText !== "OK" || response.data?.erro) {
+        toast.error(`Ceps não encontrado`)
+        throw Error()
+      }
+      if (response.data.length === 0) {
+        // console.log(response.data.length)
+        toast.warning(`Não exite cep para esse endereço`)
+      }
+      if (response.data.length > 0) {
+        toast.success(`Ceps Encontrado`)
+      }
       return response.data
     });
 
