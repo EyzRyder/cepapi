@@ -5,7 +5,7 @@ interface Props{
 }
 export const CepCard = ({data}:Props) =>{
   return (
-        <article key={data.cep} className="bg-white px-3 py-2 rounded-md shadow">
+    <article key={data.cep} className="bg-white px-3 py-2 rounded-md shadow  dark:shadow-white dark:shadow-sm dark:bg-[#01121a] ">
           <h2 className="text-2xl">
             <span>Cep: </span>
             <span>{data.cep}</span>

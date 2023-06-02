@@ -43,7 +43,7 @@ export default function BuscarEndereco() {
       }
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='rounded-2xl flex px-3 py-2 shadow-lg items-center justify-between bg-white'>
+        className='rounded-2xl flex px-3 py-2 shadow-lg items-center justify-between bg-white dark:bg-[#01121a] dark:shadow-white dark:shadow-sm'>
         <label htmlFor="cep">
           Cep:
         </label>

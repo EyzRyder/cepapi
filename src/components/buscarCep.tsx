@@ -50,9 +50,9 @@ export default function BuscarCep() {
       }
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='rounded-2xl px-3 py-2 flex flex-col gap-4'
+        className='rounded-2xl px-3 py-2 flex flex-col gap-4 '
       >
-        <span className="rounded-2xl px-3 py-2 shadow-lg bg-white">
+        <span className="rounded-2xl px-3 py-2 shadow-lg bg-white dark:bg-[#01121a] dark:shadow-white dark:shadow-sm">
           <label htmlFor="uf">Estado: </label>
           <input
             id='uf'
@@ -66,7 +66,7 @@ export default function BuscarCep() {
         >
           {errors.uf?.message}
         </div>}
-        <span className="rounded-2xl px-3 py-2 shadow-lg bg-white">
+        <span className="rounded-2xl px-3 py-2 shadow-lg bg-white dark:bg-[#01121a] dark:shadow-white dark:shadow-sm">
           <label htmlFor="cidade">Cidade: </label>
 
           <input
@@ -76,7 +76,7 @@ export default function BuscarCep() {
             type="text"
           />
         </span>
-        <span className="rounded-2xl px-3 py-2 shadow-lg bg-white">
+        <span className="rounded-2xl px-3 py-2 shadow-lg bg-white dark:bg-[#01121a] dark:shadow-white dark:shadow-sm">
           <label htmlFor="enderenco">Enderenço: </label>
 
           <input
