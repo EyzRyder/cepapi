@@ -22,7 +22,7 @@ export default function BuscarCep() {
       }
       if (response.data.length === 0) {
         // console.log(response.data.length)
-        toast.warning(`Não exite cep para esse endereço`)
+        toast.warning(`Endere`)
       }
       if (response.data.length > 0) {
         toast.success(`Ceps Encontrado`)
@@ -44,7 +44,7 @@ export default function BuscarCep() {
     await refetch();
   };
   return (
-    <main className=" flex flex-col items-center gap-4 ">
+    <main className="w-full flex flex-col items-center gap-4 ">
       {
         isFetching && <Loading/>
       }
@@ -90,7 +90,10 @@ export default function BuscarCep() {
           Buscar
         </button>
       </form>
+
+      <div className="scrollBar relative flex gap-5 w-full h-full overflow-x-scroll item-center whitespace-nowrap scroll scroll-smooth snap-x">
       {ceps && ceps.map(data => (<CepCard key={data.cep} data={data} />))}
+      </div>
     </main>
   )
 }
