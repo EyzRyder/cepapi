@@ -91,7 +91,7 @@ export default function BuscarCep() {
         </button>
       </form>
 
-      <div className="scrollBar relative flex gap-5 w-full h-full overflow-x-scroll item-center whitespace-nowrap scroll scroll-smooth snap-x">
+      <div className="scrollBar relative flex gap-5 w-full max-md:w-[100vw] h-full px-2 py-3 overflow-x-scroll item-center whitespace-nowrap scroll scroll-smooth snap-x">
       {ceps && ceps.map(data => (<CepCard key={data.cep} data={data} />))}
       </div>
     </main>
