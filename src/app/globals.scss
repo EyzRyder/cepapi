@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'loaders.css/src/animations/ball-pulse-sync.scss';
+
+// .loader-hidden {
+//   display: none;
+// }
+
+.loader-active {
+  display: block;
+  color: #10b981;
+}
 
 body {
   margin: 0;
