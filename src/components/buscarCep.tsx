@@ -22,7 +22,7 @@ export default function BuscarCep() {
       }
       if (response.data.length === 0) {
         // console.log(response.data.length)
-        toast.warning(`Endere`)
+        toast.warning(`Ceps não encontrado`)
       }
       if (response.data.length > 0) {
         toast.success(`Ceps Encontrado`)
